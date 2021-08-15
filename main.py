@@ -4,7 +4,7 @@ import discord
 from dotenv import load_dotenv
 
 load_dotenv()
-TOKEN = os.getenv('TOKEN')
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 client = discord.Client()
 
@@ -17,23 +17,15 @@ async def on_message(message):
     if (message.author == client.user):
         return
 
-    if (message.content.startswith('$disturbe')):
-        image = (
-            """
-            https://pyxis.nymag.com/v1/imgs/392/b88/f2cae65a3354b4fc3a9ff4da05bd9821e7-31-birthday-boy.rsquare.w700.jpg
-            """
-        )
-        for i in range(5):
-            await message.channel.send(image)
 
-    if (message.content.startswith('$clean')):
+    if (message.content.startswith('$sanitize')):
         content = (
             """
-            https://www.youtube.com/watch?v=fCQufN8Wsgc
+            https://www.gannett-cdn.com/presto/2020/07/14/USAT/06a4c218-8621-48f6-8e13-95dd2f0e414e-lysol-spray-hero.jpg
             """
         )
-        for i in range(5):
-            await message.channel.send(content)
+
+        await message.channel.send(content)
 
     if (message.content.startswith('$sing')):
         content = (
@@ -41,8 +33,8 @@ async def on_message(message):
             -play https://www.youtube.com/watch?v=kVpv8-5XWOI
             """
         )
-        for i in range(5):
-            await message.channel.send(content)
+
+        await message.channel.send(content)
 
     
 
